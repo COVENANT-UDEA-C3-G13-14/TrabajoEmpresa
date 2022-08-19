@@ -4,3 +4,4 @@ Michael Suarez - Analista
 David Vera - Scrum Master
 Julio Riveros - product owner
 Andres Perez Rodriguez - Administrador de Bases de Datos
+Erickson Vergara Rojas - Desarrollador
