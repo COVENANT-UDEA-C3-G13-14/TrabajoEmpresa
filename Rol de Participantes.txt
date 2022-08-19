@@ -3,3 +3,4 @@ Lista de Participantes y sus respectivo Rol
 Michael Suarez - Analista
 David Vera - Scrum Master
 Julio Riveros - product owner
+Andres Perez Rodriguez - Administrador de Bases de Datos
