@@ -1,4 +1,5 @@
 COVENANT
 
 Michael Suarez - Analista
-David Vera - Scrum Master
+
+Julio Riveros - product owner
