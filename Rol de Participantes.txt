@@ -1,5 +1,5 @@
 COVENANT
-Lista de Participantes y sus respectivo Rol
+Lista de Participantes y su respectivo Rol:
 Michael Suarez - Analista
 David Vera - Scrum Master
 Julio Riveros - product owner
