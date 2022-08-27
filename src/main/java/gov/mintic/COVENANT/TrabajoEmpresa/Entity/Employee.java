@@ -10,7 +10,7 @@ public class Employee {
     private String correo;
     private String nombre;
     private String telefono;
-    private String rol;
+    private RollName rol;
     private Enterprise empresa;
     private Transactions transsacciones[];
 
@@ -47,11 +47,11 @@ public class Employee {
         this.telefono = telefono;
     }
 
-    public String getRol() {
+    public RollName getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(RollName rol) {
         this.rol = rol;
     }
 

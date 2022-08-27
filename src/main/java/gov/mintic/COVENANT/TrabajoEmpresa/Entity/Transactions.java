@@ -6,8 +6,9 @@ public class Transactions {
 
     private long idTransaccion;
     private String concepto;
-    private String monto;
-    private Employee usuario;
+    private float monto;
+
+    private Employee empleado;
     private Enterprise empresa;
 
     public long getIdTransaccion() {
@@ -26,20 +27,20 @@ public class Transactions {
         this.concepto = concepto;
     }
 
-    public String getMonto() {
+    public float getMonto() {
         return monto;
     }
 
-    public void setMonto(String monto) {
+    public void setMonto(float monto) {
         this.monto = monto;
     }
 
-    public Employee getUsuario() {
-        return usuario;
+    public Employee getEmpleado() {
+        return empleado;
     }
 
-    public void setUsuario(Employee usuario) {
-        this.usuario = usuario;
+    public void setEmpleado(Employee empleado) {
+        this.empleado = empleado;
     }
 
     public Enterprise getEmpresa() {
@@ -50,14 +51,13 @@ public class Transactions {
         this.empresa = empresa;
     }
 
-
     @Override
     public String toString() {
         return "Transactions{" +
                 "idTransaccion=" + idTransaccion +
                 ", concepto='" + concepto + '\'' +
                 ", monto='" + monto + '\'' +
-                ", usuario=" + usuario +
+                ", usuario=" + empleado +
                 ", empresa=" + empresa +
                 '}';
     }

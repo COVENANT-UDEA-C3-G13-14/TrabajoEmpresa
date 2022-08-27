@@ -1,5 +1,5 @@
 package gov.mintic.COVENANT.TrabajoEmpresa.Entity;
 
-public enum enum_rollName {
+public enum RollName {
     UsuarioAdministrativo, UsuarioOperativo
 }
