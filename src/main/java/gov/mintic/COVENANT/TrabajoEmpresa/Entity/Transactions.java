@@ -9,8 +9,6 @@ public class Transactions {
     private String monto;
     private Employee usuario;
     private Enterprise empresa;
-    private Date fCreacion;
-    private Date fActualizacion;
 
     public long getIdTransaccion() {
         return idTransaccion;
@@ -52,21 +50,6 @@ public class Transactions {
         this.empresa = empresa;
     }
 
-    public Date getfCreacion() {
-        return fCreacion;
-    }
-
-    public void setfCreacion(Date fCreacion) {
-        this.fCreacion = fCreacion;
-    }
-
-    public Date getfActualizacion() {
-        return fActualizacion;
-    }
-
-    public void setfActualizacion(Date fActualizacion) {
-        this.fActualizacion = fActualizacion;
-    }
 
     @Override
     public String toString() {
@@ -76,8 +59,6 @@ public class Transactions {
                 ", monto='" + monto + '\'' +
                 ", usuario=" + usuario +
                 ", empresa=" + empresa +
-                ", fCreacion=" + fCreacion +
-                ", fActualizacion=" + fActualizacion +
                 '}';
     }
 }

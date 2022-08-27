@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Enterprise {
 
     private long idEmpresa;
-    private String nombres;
+    private String nombre;
     private String documento;
     private String numeroTelefono;
     private String direccion;
@@ -21,11 +21,11 @@ public class Enterprise {
     }
 
     public String getNombres() {
-        return nombres;
+        return nombre;
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        this.nombre = nombres;
     }
 
     public String getDocumento() {
@@ -72,7 +72,7 @@ public class Enterprise {
     public String toString() {
         return "Enterprise{" +
                 "idEmpresa=" + idEmpresa +
-                ", nombres='" + nombres + '\'' +
+                ", nombres='" + nombre + '\'' +
                 ", documento='" + documento + '\'' +
                 ", numeroTelefono='" + numeroTelefono + '\'' +
                 ", direccion='" + direccion + '\'' +

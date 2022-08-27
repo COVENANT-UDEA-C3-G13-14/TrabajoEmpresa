@@ -8,7 +8,6 @@ public class Employee {
 
     private long idEmpleado;
     private String correo;
-    private String Imagen;
     private String nombre;
     private String telefono;
     private String rol;
@@ -30,14 +29,6 @@ public class Employee {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getImagen() {
-        return Imagen;
-    }
-
-    public void setImagen(String imagen) {
-        Imagen = imagen;
     }
 
     public String getNombre() {
@@ -85,7 +76,6 @@ public class Employee {
         return "Employee{" +
                 "idEmpleado=" + idEmpleado +
                 ", correo='" + correo + '\'' +
-                ", Imagen='" + Imagen + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", rol='" + rol + '\'' +
