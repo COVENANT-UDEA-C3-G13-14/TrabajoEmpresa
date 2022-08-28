@@ -1,26 +1,56 @@
 package gov.mintic.COVENANT.TrabajoEmpresa.Entity;
 
-import org.springframework.context.annotation.Profile;
-
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
+@Entity
 public class Employee {
 
-    private long idEmpleado;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String correo;
     private String nombre;
-    private String telefono;
+
+    @OneToOne
+    private Profile perfil;
+
+    @OneToMany
     private RollName rol;
+
+    @ManyToOne
     private Enterprise empresa;
-    private Transactions transsacciones[];
 
+    @OneToMany
+    private List<Transactions> transacciones = new ArrayList<>();
 
-    public long getIdEmpleado() {
-        return idEmpleado;
+    private Date createdAt;
+    private Date updatedAt;
+
+    public Employee() {
     }
 
-    public void setIdEmpleado(long idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public Employee(long id, String correo, String nombre, Profile perfil, RollName rol, Enterprise empresa, List<Transactions> transacciones, Date createdAt, Date updatedAt) {
+        this.id = id;
+        this.correo = correo;
+        this.nombre = nombre;
+        this.perfil = perfil;
+        this.rol = rol;
+        this.empresa = empresa;
+        this.transacciones = transacciones;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getCorreo() {
@@ -39,12 +69,12 @@ public class Employee {
         this.nombre = nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public Profile getPerfil() {
+        return perfil;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPerfil(Profile perfil) {
+        this.perfil = perfil;
     }
 
     public RollName getRol() {
@@ -63,24 +93,42 @@ public class Employee {
         this.empresa = empresa;
     }
 
-    public Transactions[] getTranssacciones() {
-        return transsacciones;
+    public List<Transactions> getTransacciones() {
+        return transacciones;
     }
 
-    public void setTranssacciones(Transactions[] transsacciones) {
-        this.transsacciones = transsacciones;
+    public void setTransacciones(List<Transactions> transacciones) {
+        this.transacciones = transacciones;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "idEmpleado=" + idEmpleado +
+                "id=" + id +
                 ", correo='" + correo + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", rol='" + rol + '\'' +
+                ", perfil=" + perfil +
+                ", rol=" + rol +
                 ", empresa=" + empresa +
-                ", transsacciones=" + Arrays.toString(transsacciones) +
+                ", transacciones=" + transacciones +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

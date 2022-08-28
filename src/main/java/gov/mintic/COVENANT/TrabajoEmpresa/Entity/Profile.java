@@ -4,33 +4,29 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Transactions {
+public class Profile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String concepto;
-    private float monto;
+    private String Image;
+    private String phone;
 
-    @ManyToOne
+    @OneToOne
     private Employee empleado;
-
-    @ManyToOne
-    private Enterprise empresa;
 
     private Date createdAt;
     private Date updatedAt;
 
-    public Transactions() {
+    public Profile() {
     }
 
-    public Transactions(long id, String concepto, float monto, Employee empleado, Enterprise empresa, Date createdAt, Date updatedAt) {
+    public Profile(long id, String image, String phone, Employee empleado, Date createdAt, Date updatedAt) {
         this.id = id;
-        this.concepto = concepto;
-        this.monto = monto;
+        Image = image;
+        this.phone = phone;
         this.empleado = empleado;
-        this.empresa = empresa;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -43,20 +39,20 @@ public class Transactions {
         this.id = id;
     }
 
-    public String getConcepto() {
-        return concepto;
+    public String getImage() {
+        return Image;
     }
 
-    public void setConcepto(String concepto) {
-        this.concepto = concepto;
+    public void setImage(String image) {
+        Image = image;
     }
 
-    public float getMonto() {
-        return monto;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setMonto(float monto) {
-        this.monto = monto;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Employee getEmpleado() {
@@ -65,14 +61,6 @@ public class Transactions {
 
     public void setEmpleado(Employee empleado) {
         this.empleado = empleado;
-    }
-
-    public Enterprise getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Enterprise empresa) {
-        this.empresa = empresa;
     }
 
     public Date getCreatedAt() {
@@ -93,12 +81,11 @@ public class Transactions {
 
     @Override
     public String toString() {
-        return "Transactions{" +
+        return "Profile{" +
                 "id=" + id +
-                ", concepto='" + concepto + '\'' +
-                ", monto=" + monto +
+                ", Image='" + Image + '\'' +
+                ", phone='" + phone + '\'' +
                 ", empleado=" + empleado +
-                ", empresa=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
