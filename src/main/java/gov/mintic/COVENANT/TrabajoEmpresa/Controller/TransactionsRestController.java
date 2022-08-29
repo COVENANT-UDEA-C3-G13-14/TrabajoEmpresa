@@ -1,12 +1,14 @@
 package gov.mintic.COVENANT.TrabajoEmpresa.Controller;
 
 import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Employee;
+import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Enterprise;
 import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Profile;
 import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Transactions;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -14,24 +16,72 @@ public class TransactionsRestController {
 
     @GetMapping("/transactions/{id}")
     public Transactions findById(@PathVariable long id) {
-        Transactions transacciones = new Transactions();
-        transacciones.setId(1);
-        transacciones.setConcepto("Aporte de Socios");
-        transacciones.setMonto(1000000);
-        transacciones.setEmpleado(transacciones.getEmpleado());
-        transacciones.setEmpresa(transacciones.getEmpresa());
-        transacciones.setUpdatedAt(transacciones.getUpdatedAt());
-        transacciones.setCreatedAt(transacciones.getCreatedAt());
-        return transacciones;
-        //Transactions transacciones1 = new Transactions();
-        //transacciones1.setId(2);
-        //transacciones1.setConcepto("Adelanto Arriendo Local");
-        //transacciones1.setMonto(-300000);
-        //transacciones1.setEmpleado(transacciones1.getEmpleado());
-        //transacciones1.setEmpresa(transacciones1.getEmpresa());
-        //transacciones1.setUpdatedAt(transacciones1.getUpdatedAt());
-        //transacciones1.setCreatedAt(transacciones1.getCreatedAt());
-        //return transacciones1;
+        Transactions transaccion = new Transactions();
+        Employee empleado = new Employee();
+        Enterprise empresa = new Enterprise();
+        transaccion.setId(1);
+        transaccion.setConcepto("Aporte de Socios");
+        transaccion.setMonto(5000000);
+        transaccion.setEmpleado(new Employee());
+        transaccion.setEmpresa(new Enterprise());
+        transaccion.setUpdatedAt(new Date());
+        transaccion.setCreatedAt(new Date());
+        return transaccion;
     }
 
+    @GetMapping("/transactions")
+    public List<Transactions> findAll() {
+        List<Transactions> transacciones = new ArrayList<Transactions>();
+        Transactions transacciones1 = new Transactions();
+        Employee empleado = new Employee();
+        Enterprise empresa = new Enterprise();
+        transacciones1.setId(1);
+        transacciones1.setConcepto("Adelanto Arriendo Local");
+        transacciones1.setMonto(-500000);
+        transacciones.add(transacciones1);
+        transacciones1.setEmpleado(new Employee());
+        transacciones1.setEmpresa(new Enterprise());
+        transacciones1.setUpdatedAt(new Date());
+        transacciones1.setCreatedAt(new Date());
+        Transactions transacciones2 = new Transactions();
+        transacciones2.setId(2);
+        transacciones2.setConcepto("Estanteria");
+        transacciones2.setMonto(-400000);
+        transacciones2.setEmpleado(new Employee());
+        transacciones2.setEmpresa(new Enterprise());
+        transacciones2.setUpdatedAt(new Date());
+        transacciones2.setCreatedAt(new Date());
+        transacciones.add(transacciones2);
+        return transacciones;
+    }
+
+    @PostMapping ("/transactions")
+    public Transactions createTransaccion(@RequestBody Transactions transacciones) {
+        Transactions newTransaccion = new Transactions();
+        newTransaccion.setId(transacciones.getId());
+        newTransaccion.setConcepto(transacciones.getConcepto());
+        newTransaccion.setMonto(transacciones.getMonto());
+        newTransaccion.setEmpleado(transacciones.getEmpleado());
+        newTransaccion.setEmpresa(transacciones.getEmpresa());
+        newTransaccion.setUpdatedAt(transacciones.getUpdatedAt());
+        newTransaccion.setCreatedAt(transacciones.getCreatedAt());
+        return newTransaccion;
+    }
+
+    @PutMapping ("/transactions/{id}")
+    public Transactions updateTransaccion(@PathVariable long id, @RequestBody Transactions transacciones) {
+        Transactions putTransaccion = findById(id);
+        putTransaccion.setConcepto(transacciones.getConcepto());
+        putTransaccion.setMonto(transacciones.getMonto());
+        putTransaccion.setEmpleado(transacciones.getEmpleado());
+        putTransaccion.setEmpresa(transacciones.getEmpresa());
+        putTransaccion.setUpdatedAt(transacciones.getUpdatedAt());
+        putTransaccion.setCreatedAt(transacciones.getCreatedAt());
+        return putTransaccion;
+    }
+
+    @DeleteMapping ("/transactions/{id}")
+    public void deleteTransaccion(@PathVariable long id) {
+        Transactions deleteTransaccion = findById(id);
+    }
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api")
 public class ProfileRestController {
@@ -20,8 +22,8 @@ public class ProfileRestController {
         perfil.setImage("Foto");
         perfil.setPhone("3014071406");
         perfil.setEmpleado(new Employee());
-        perfil.setUpdatedAt(null);
-        perfil.setCreatedAt(null);
+        perfil.setUpdatedAt(new Date());
+        perfil.setCreatedAt(new Date());
         return perfil;
 
 
