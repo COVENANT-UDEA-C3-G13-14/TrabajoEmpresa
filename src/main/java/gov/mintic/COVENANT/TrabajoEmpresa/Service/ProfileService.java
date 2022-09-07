@@ -1,10 +1,10 @@
 package gov.mintic.COVENANT.TrabajoEmpresa.Service;
 
 import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Employee;
-import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Profile;
-import org.springframework.stereotype.Service;
+        import gov.mintic.COVENANT.TrabajoEmpresa.Entity.Profile;
+        import org.springframework.stereotype.Service;
 
-import java.util.Date;
+        import java.util.Date;
 @Service
 public class ProfileService implements IProfileService {
     @Override
