@@ -7,15 +7,22 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name="Empresas")
 public class Enterprise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_enterprise",nullable = false)
+    private long idEnterprise;
 
+
+    @Column(name="nombre",nullable = false)
     private String nombre;
+    @Column(name="documento",nullable = false)
     private String documento;
+    @Column(name="numero_contacto",nullable = false)
     private String numeroTelefono;
+    @Column(name="direccion",nullable = false)
     private String direccion;
 
     @OneToMany
@@ -31,7 +38,7 @@ public class Enterprise {
     }
 
     public Enterprise(long id, String nombre, String documento, String numeroTelefono, String direccion, List<Employee> usuarios, List<Transactions> transacciones, Date createdAt, Date updatedAt) {
-        this.id = id;
+        this.idEnterprise = id;
         this.nombre = nombre;
         this.documento = documento;
         this.numeroTelefono = numeroTelefono;
@@ -43,11 +50,11 @@ public class Enterprise {
     }
 
     public long getId() {
-        return id;
+        return idEnterprise;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.idEnterprise = id;
     }
 
     public String getNombre() {
@@ -117,7 +124,7 @@ public class Enterprise {
     @Override
     public String toString() {
         return "Enterprise{" +
-                "id=" + id +
+                "id=" + idEnterprise +
                 ", nombre='" + nombre + '\'' +
                 ", documento='" + documento + '\'' +
                 ", numeroTelefono='" + numeroTelefono + '\'' +
